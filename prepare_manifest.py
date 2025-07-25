@@ -37,7 +37,7 @@ def save_manifest(entries, filename):
             f.write("\n")  # Thêm dòng mới sau mỗi entry
 if __name__ == "__main__":
     # Ví dụ sử dụng
-    manifest_file = "audio_datasets/manifest.json"  # Thay đổi đường dẫn tới file manifest của bạn
+    manifest_file = "/kaggle/input/vivoice-16k-200h/audio_datasets/manifest.json"  # Thay đổi đường dẫn tới file manifest của bạn
     entries = read_manifest_basic(manifest_file)
     train_entries, val_entries, test_entries = split_train_val_test(entries)
     save_manifest(train_entries, "train_manifest.json")
