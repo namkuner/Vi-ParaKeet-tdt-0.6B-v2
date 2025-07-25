@@ -33,6 +33,7 @@ def save_manifest(entries, filename):
     """Lưu danh sách entries vào file manifest"""
     with open(filename, "w", encoding="utf-8") as f:
         for entry in entries:
+            entry["audio_filepath"] = "/kaggle/input/vivoice-16k-200h/" + entry["audio_filepath"]  # Chuyển đổi đường dẫn
             json.dump(entry, f, ensure_ascii=False)
             f.write("\n")  # Thêm dòng mới sau mỗi entry
 if __name__ == "__main__":
