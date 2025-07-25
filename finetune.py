@@ -233,7 +233,7 @@ def setup_dataloaders(asr_model, cfg):
     return asr_model
 
 
-@hydra_runner(config_path=".", config_name="hindi_config.yaml")
+@hydra_runner(config_path=".", config_name="vi_config.yml")
 def main(cfg):
     logging.info(f'Hydra config: {OmegaConf.to_yaml(cfg)}')
 
