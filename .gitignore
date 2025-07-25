@@ -1,0 +1,12 @@
+audio_datasets
+experiments
+parakeet-tdt-0.6b-v2
+tokenizer_output
+chat_text.parquet
+Day of the Dead Audio.mp3
+hindi_config.yaml
+mainfest.json
+trin_manifest.json
+test_manifest.json
+val_manifest.json
+tokenizer_info

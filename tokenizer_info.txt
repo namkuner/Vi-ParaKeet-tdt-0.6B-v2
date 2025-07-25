@@ -1,0 +1,4 @@
+Tokenizer Type: SentencePieceTokenizer
+Vocab Size: 1024
+
+=== VOCABULARY ===
