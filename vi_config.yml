@@ -2,7 +2,8 @@ name: "Parakeet_tdt_0.6b_v2_vi" # name of the experiment, used for logging and s
 
 # use `init_from_nemo_model` or `init_from_pretrained_model` to initialize the model
 # We do not currently support `init_from_ptl_ckpt` to create a single script for all types of models.
-init_from_nemo_model: parakeet-tdt-0.6b-v2/parakeet-tdt-0.6b-v2.nemo # path to nemo model
+init_from_pretrained_model: experiments/Parakeet_tdt_0.6b_v2_vi/2025-07-26_13-18-12/checkpoints/Parakeet_tdt_0.6b_v2_vi--val_wer=1.1253-epoch=1-last.ckpt
+
 
 model:
   sample_rate: 16000

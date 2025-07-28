@@ -3,26 +3,25 @@
 # print(asr_model)
 # output = asr_model.transcribe(['/content/First Battle Audio.mp3'],timestamps=True)
 
-# import nemo.collections.asr as nemo_asr
-# import os
-# import wget
-# # Load the model
-# asr_model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v2")
-
-# Save the model to a local directory
-# model_dir = "parakeet-tdt-0.6b-v2"
-# os.makedirs(model_dir, exist_ok=True)
-# model_path = os.path.join(model_dir, "parakeet-tdt-0.6b-v2.nemo")
-# asr_model.save_to(model_path)
-
 import nemo.collections.asr as nemo_asr
 import os
 import wget
 # Load the model
-asr_model = nemo_asr.models.ASRModel.restore_from("experiments/Speech_To_Text_Finetuning_parakeet_v2_tdt_hindi/2025-07-24_07-40-54/checkpoints/Speech_To_Text_Finetuning_parakeet_v2_tdt_hindi.nemo")
-# print(asr_model)
-output = asr_model.transcribe(['audio_datasets/0/1.wav'], timestamps=True)
-print(output)
+# asr_model = nemo_asr.models.ASRModel.from_pretrained("nvidia/parakeet-tdt-0.6b-v2")
+#
+# model_dir = "parakeet-tdt-0.6b-v2"
+# os.makedirs(model_dir, exist_ok=True)
+# model_path = os.path.join(model_dir, "parakeet-tdt-0.6b-v2.nemo")
+# asr_model.save_to(model_path)
+#
+# import nemo.collections.asr as nemo_asr
+# import os
+# import wget
+# # Load the model
+# asr_model = nemo_asr.models.ASRModel.restore_from("experiments/Speech_To_Text_Finetuning_parakeet_v2_tdt_hindi/2025-07-24_07-40-54/checkpoints/Speech_To_Text_Finetuning_parakeet_v2_tdt_hindi.nemo")
+# # print(asr_model)
+# output = asr_model.transcribe(['audio_datasets/0/1.wav'], timestamps=True)
+# print(output)
 # =====================================================
 # CÁCH 2: Hiển thị vocabulary (danh sách các token)
 # =====================================================
@@ -143,3 +142,9 @@ print(output)
 # if hasattr(asr_model, 'cfg') and 'tokenizer' in asr_model.cfg:
 #     print("Tokenizer config from model:")
 #     print(asr_model.cfg.tokenizer)
+import torch
+if __name__=="__main__":
+    state = torch.load("experiments/Speech_To_Text_Finetuning_parakeet_v2_tdt_hindi/2025-07-24_07-40-54/checkpoints/Speech_To_Text_Finetuning_parakeet_v2_tdt_hindi--val_wer=8.6735-epoch=0-last.ckpt", map_location="cpu")
+    print(state.keys())
+    print(state["lr_schedulers"])
+    print(state["optimizer_states"])
