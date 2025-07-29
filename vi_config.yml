@@ -2,8 +2,7 @@ name: "Parakeet_tdt_0.6b_v2_vi" # name of the experiment, used for logging and s
 
 # use `init_from_nemo_model` or `init_from_pretrained_model` to initialize the model
 # We do not currently support `init_from_ptl_ckpt` to create a single script for all types of models.
-init_from_pretrained_model: experiments/Parakeet_tdt_0.6b_v2_vi/2025-07-26_13-18-12/checkpoints/Parakeet_tdt_0.6b_v2_vi--val_wer=1.1253-epoch=1-last.ckpt
-
+init_from_nemo_model: parakeet-tdt-0.6b-v2/parakeet-tdt-0.6b-v2.nemo
 
 model:
   sample_rate: 16000
@@ -109,7 +108,7 @@ exp_manager:
     mode: "min"
     save_top_k: 5
     always_save_nemo: True # saves the checkpoints as nemo files along with PTL checkpoints
-  resume_if_exists: false
+  resume_if_exists: true
   resume_ignore_no_checkpoint: false
 
   create_wandb_logger: false
