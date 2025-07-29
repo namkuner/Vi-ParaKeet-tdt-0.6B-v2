@@ -47,7 +47,7 @@ model:
     labels: null # example list config: \[' ', 'a', 'b', 'c'\]
 
   tokenizer: # use for spe/bpe based tokenizer models
-    update_tokenizer: true
+    update_tokenizer: false
     dir: tokenizer_output/  # path to directory which contains either tokenizer.model (bpe) or vocab.txt (for wpe)
     type: bpe  # Can be either bpe (SentencePiece tokenizer) or wpe (WordPiece tokenizer)
   encoder_config:
@@ -79,12 +79,12 @@ trainer:
   num_nodes: 1
   max_epochs: 50
   max_steps: -1 # computed at runtime if not set
-  val_check_interval: 1.0 # Set to 0.25 to check 4 times per epoch, or an int for number of iterations
+  val_check_interval: 4.0 # Set to 0.25 to check 4 times per epoch, or an int for number of iterations
   accelerator: auto
   strategy:
     _target_: lightning.pytorch.strategies.DDPStrategy
     gradient_as_bucket_view: true
-  accumulate_grad_batches: 256
+  accumulate_grad_batches: 1
   gradient_clip_val: 0.0
   precision: 32 # 16, 32, or bf16
   log_every_n_steps: 10  # Interval of logging.
