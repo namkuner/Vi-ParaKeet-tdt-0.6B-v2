@@ -79,7 +79,7 @@ trainer:
   num_nodes: 1
   max_epochs: 50
   max_steps: -1 # computed at runtime if not set
-  val_check_interval: 4.0 # Set to 0.25 to check 4 times per epoch, or an int for number of iterations
+  val_check_interval: 0.25 # Set to 0.25 to check 4 times per epoch, or an int for number of iterations
   accelerator: auto
   strategy:
     _target_: lightning.pytorch.strategies.DDPStrategy
